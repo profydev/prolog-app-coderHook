@@ -6,7 +6,13 @@ export function ProjectList() {
   const { data, isLoading, isError, error } = useGetProjects();
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return (
+      <div>
+        <div className={styles.loadingContainer}>
+          <LoadingCircle />
+        </div>
+      </div>
+    );
   }
 
   if (isError) {
@@ -22,5 +28,17 @@ export function ProjectList() {
         </li>
       ))}
     </ul>
+  );
+}
+
+function LoadingCircle() {
+  return (
+    <div className={styles.loadingContent} data-cy="loading-circle">
+      <img
+        src="/icons/loading-circle.svg"
+        alt="Loading circle"
+        className={styles.spin}
+      />
+    </div>
   );
 }
