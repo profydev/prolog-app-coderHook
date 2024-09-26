@@ -10,9 +10,6 @@ describe("Project List", () => {
 
     // open projects page
     cy.visit("http://localhost:3000/dashboard");
-
-    // wait for request to resolve
-    cy.wait("@getProjects");
   });
 
   context("desktop resolution", () => {
@@ -20,8 +17,19 @@ describe("Project List", () => {
       cy.viewport(1025, 900);
     });
 
+    it("shows loading icon", () => {
+      cy.get("[data-cy='loading-circle'] > img").should(
+        "have.attr",
+        "src",
+        "/icons/loading-circle.svg",
+      );
+    });
+
     it("renders the projects", () => {
       const languageNames = ["React", "Node.js", "Python"];
+
+      // wait for request to resolve
+      cy.wait("@getProjects");
 
       // get all project cards
       cy.get("main")
@@ -37,6 +45,20 @@ describe("Project List", () => {
             .find("a")
             .should("have.attr", "href", "/dashboard/issues");
         });
+    });
+  });
+
+  context("mobile resolution", () => {
+    beforeEach(() => {
+      cy.viewport("iphone-8");
+    });
+
+    it("shows loading icon", () => {
+      cy.get("[data-cy='loading-circle'] > img").should(
+        "have.attr",
+        "src",
+        "/icons/loading-circle.svg",
+      );
     });
   });
 });
