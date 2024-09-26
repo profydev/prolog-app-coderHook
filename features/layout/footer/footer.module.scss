@@ -8,7 +8,8 @@
   align-items: center;
   align-self: stretch;
   background: color.$gray-50;
-  height: 60px;
+
+  //   height: 60px;
 
   @media (min-width: breakpoint.$desktop) {
     /* Desktop styles go here */
@@ -16,7 +17,7 @@
 
   @media (max-width: breakpoint.$desktop) {
     /* Mobile styles go here */
-    width: 375px;
+    // width: 375px;
     padding: 0;
     flex-shrink: 0;
   }
