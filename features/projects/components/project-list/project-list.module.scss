@@ -15,3 +15,57 @@
     grid-template-columns: repeat(auto-fit, 400px);
   }
 }
+
+.alertBoxContainer {
+  display: flex;
+  width: 90%;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  border: 1px solid var(#fda29b);
+  background: var(#fffbfa);
+
+  @media (max-width: breakpoint.$desktop) {
+    /* Mobile styles go here */
+    align-self: stretch;
+  }
+}
+
+.alertBoxContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1 0 0;
+}
+
+.alertBoxText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 1 0 0;
+}
+
+.alertActions {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.alertButton {
+  display: flex;
+  align-items: flex-start;
+}
+
+.alertButtonText {
+  color: var(#b42318);
+
+  /* Text sm/Medium */
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+}
