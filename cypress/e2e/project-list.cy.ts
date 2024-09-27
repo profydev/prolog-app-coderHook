@@ -38,5 +38,12 @@ describe("Project List", () => {
             .should("have.attr", "href", "/dashboard/issues");
         });
     });
+
+    it("show Error alert message when data fails to fetch", () => {
+      cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+        forceNetworkError: true,
+      }).as("getProjects");
+      cy.get("main").contains("Error");
+    });
   });
 });
